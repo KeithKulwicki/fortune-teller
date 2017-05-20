@@ -44,23 +44,23 @@ public class FortuneTellerApp {
 
 // I.	Input
 		Scanner input = new Scanner(System.in);
-		
+//		1. 	First Name	
 		System.out.println("What is your first name?");
 		String nameFirst = input.nextLine();
-
-		System.out.println("What is your last name?");
+//		2. 	Last Name
+		System.out.println("What is your last name?/b");
 		String nameLast = input.nextLine();
-
+//		3.	Age
 		System.out.println("What is your age?");
 		int age = input.nextInt();
-
+//		4.`Birth Month
 		System.out.println("What is your numeric birth month? (1-12)");
 		int birthMonth = input.nextInt();
-
+//		5.	Favorite ROYGBIV
 		System.out.println("What is your favorite ROYGBIV color? "
 				+ "(What is ROYGBIV? Enter \"Help\" for list of the ROYGBIV colors.)");
 		String roygbiv = input.next();
-// 		if help then explain roygbiv and ask for favorite color again
+// 		6. if "Help", then explain ROYGBIV, & ask favorite ROYGBIV again
 		if (roygbiv.equalsIgnoreCase("HELP")) 
 		{
             System.out.println("Input one of the following of ROYGBIV colors:");
@@ -68,21 +68,25 @@ public class FortuneTellerApp {
             String response2 = input.next();
             roygbiv = response2;
         }
-
+//		7. # Siblings
 		System.out.println("How many siblings do you have? ");
 		int siblings = input.nextInt();
 
 // II.	Tests
 // 		1. 	Age (Odd/Even) = Years To Retire 
 		int yearsRetire;
+//			If Age Even
 		if (age % 2 == 0) 
 		{yearsRetire = 50;} 
+//			If Age Odd
 		else 
 		{yearsRetire = 5;}
 		
 // 		2. 	#Siblings = Vacation Home Location
 		String vacationHomeLocation;
+//		If <0, then bad location
 		vacationHomeLocation ="DS-1 Orbital Battle Station (0 ABY)";
+//		If >0
 		if (siblings == 0)
 		{vacationHomeLocation = "Naboo";}
 		else if (siblings == 1)
@@ -97,6 +101,7 @@ public class FortuneTellerApp {
 		
 //		3. ROYGBIV = Mode of Transportation
 		String modeOfTransportation = null;
+//		change roygbiv responses to lower case to fit expected data
 		if(roygbiv.toLowerCase().equals("red"))
 		{modeOfTransportation = "Incom Corporation T-16 Skyhopper";}
 		if(roygbiv.toLowerCase().equals("orange"))
@@ -116,15 +121,19 @@ public class FortuneTellerApp {
 // 		4. Birth Month = $ MIB
 		int amountOfMoney;
 		amountOfMoney = 0;
+//		birthMonth 1 - 4 = $400,000.00 ("$" & ".00" added at output)
 		if (birthMonth > 0 && birthMonth <=4) {amountOfMoney = 400000;}
+//		birthMonth 5 - 8 = $350,000.00 ("$" & ".00" added at output)
 		if (birthMonth >= 5 && birthMonth <=8) {amountOfMoney = 350000;}
+//		birthMonth 9 - 12 = $10,000,000.00 ("$" & ".00" added at output)
 		if (birthMonth >= 9 && birthMonth <=12) {amountOfMoney = 10000000;}
 		
 		
 // III.	Output
-		System.out.print(nameFirst + " " + nameLast 
-		+ " will retire in " + yearsRetire + " years with $"
-		+ amountOfMoney + ".00 in the bank, " 
+		System.out.print
+		(nameFirst + " " + nameLast 
+		+ " will retire in " + yearsRetire + " years with "
+		+ "$" + amountOfMoney + ".00 in the bank, " 
 		+ "with a vacation home on " + vacationHomeLocation 
 		+ ", and travele via " + modeOfTransportation + ".");
 	}
