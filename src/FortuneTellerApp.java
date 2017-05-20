@@ -3,51 +3,48 @@ import java.util.Scanner;
 public class FortuneTellerApp {
 
 	public static void main(String[] args) {
-// Part 1: Input
-	// Ask the user for:
-		// 1. first name.
-		// 2. last name.
-		// 3. age.
-		// 4. birth month (as an 'int').
-		// 5. favorite ROYGBIV color.
-		// 6. If the user does not know what ROYGBIV is, ask the user to enter
-		// “Help” to get a list of the ROYGBIV colors.
-		// 7. number of siblings.
-		// Part 2
+/* 	I:	Input
+		Ask the user for:
+		1. 	first name.
+		2. 	last name.
+		3. 	age.
+		4. 	birth month (as an 'int').
+		5. 	favorite ROYGBIV color.
+		6. 	If the user does not know what ROYGBIV is, ask the user to enter
+			& “Help” to get a list of the ROYGBIV colors.
+		7. number of siblings.
+	II:	Tests
+		1. 	If the user’s age is an odd number, 
+			then the user will retire in x years
+			if the user's age is odd, or y years if user's age is even.
+		2. 	If the user’s number of siblings is zero, then they will have a
+			vacation home in ____ (location),
+			if one then they will have a vacation home in ____ (location),
+			if two then they will have a vacation home in ____ (location),
+			if three then they will have a vacation home in ____ (location), or
+			if more than three then they will have a vacation home in ____ (location).
+			If the user enters anything other than a number greater than or equal to 0,
+			they should get a bad vacation home!
+		3. 	Depending on which ROYGBIV color is the user’s favorite,
+			they will have a specific mode of transportation (i.e. car, boat, plane, etc.).
+		4. 	If the user’s birth month is 1-4, they will have $____ in the bank;
+			if the user's birth month is 5-8, they will have $____ in the bank;
+			and if it is 9-12, then they will have $____ in the bank.
+			If the user enters something other than 1-12 as their birth month,
+			they will have $0.00 in the bank.
+	III:Output
+			The user’s fortune should be thus:
+		1. 	[First Name] [Last Name]
+		2. 	will retire in [# of Years]
+		3. 	with [Amount of Money] in the bank,
+		4. 	a vacation home in [Location]
+		5. 	and a [Mode of Transportation].
+		* 	Note: 	Program should be able to handle whether or not a user inputs
+					capital or lowercase letters. */
 
-		// 1. If the user’s age is an odd number, 
-		//    then the user will retire in x years
-		//    if the user's age is odd, or y years if user's age is even.
-		// 2. If the user’s number of siblings is zero, then they will have a
-		// vacation home in ____ (location),
-		// if one then they will have a vacation home in ____ (location),
-		// if two then they will have a vacation home in ____ (location),
-		// if three then they will have a vacation home in ____ (location), or
-		// if more than three then they will have a vacation home in ____
-		// (location).
-		// If the user enters anything other than a number greater than or equal
-		// to 0,
-		// they should get a bad vacation home!
-		// 4. Depending on which ROYGBIV color is the user’s favorite,
-		// they will have a specific mode of transportation (i.e. car, boat,
-		// plane, etc.).
-		// 5. If the user’s birth month is 1-4, they will have $____ in the
-		// bank;
-		// if the user's birth month is 5-8, they will have $____ in the bank;
-		// and if it is 9-12, then they will have $____ in the bank.
-		// If the user enters something other than 1-12 as their birth month,
-		// they will have $0.00 in the bank.
-		// Part 3
-		// The user’s fortune should be thus:
-		// 1. [First Name] [Last Name]
-		// 2. will retire in [# of Years]
-		// 3. with [Amount of Money] in the bank,
-		// 4. a vacation home in [Location]
-		// 5. and a [Mode of Transportation].
-		// * Program should be able to handle whether or not a user inputs
-		// capital or lowercase letters.
-
+// I.	Input
 		Scanner input = new Scanner(System.in);
+		
 		System.out.println("What is your first name?");
 		String nameFirst = input.nextLine();
 
@@ -60,29 +57,72 @@ public class FortuneTellerApp {
 		System.out.println("What is your numeric birth month? (1-12)");
 		int birthMonth = input.nextInt();
 
-		System.out.println("What is your favorite ROYGBIV color. "
-				+ "What is ROYGBIV? Enter 'Help' for list of the ROYGBIV colors.");
-		String ROYGBIV = input.next();
+		System.out.println("What is your favorite ROYGBIV color? "
+				+ "(What is ROYGBIV? Enter \"Help\" for list of the ROYGBIV colors.)");
+		String roygbiv = input.next();
+
+		
 
 		System.out.println("How many siblings do you have? ");
 		int siblings = input.nextInt();
 
-// Part 2: Tests
-	// Years to Retire (Odd/Even)
+// II.	Tests
+// 		1. 	Age (Odd/Even) = Years To Retire 
 		int yearsRetire;
-		// Retire Age - Odd or Even
 		if (age % 2 == 0) 
 		{yearsRetire = 50;} 
 		else 
 		{yearsRetire = 5;}
 		
+// 		2. 	#Siblings = Vacation Home Location
+		String vacationHomeLocation;
+		vacationHomeLocation ="DS-1 Orbital Battle Station (0 ABY)";
+		if (siblings == 0)
+		{vacationHomeLocation = "Naboo";}
+		else if (siblings == 1)
+		{vacationHomeLocation = "Cloud City";}
+		else if (siblings == 2)
+		{vacationHomeLocation = "Forest Moon of Endor";}
+		else if (siblings == 3)
+		{vacationHomeLocation = "Ahch-To";}
+		else if (siblings >= 4)
+		{vacationHomeLocation = "Yavin 4";}
+		else {vacationHomeLocation ="DS-1 Orbital Battle Station (0 ABY)";}
 		
+//		3. ROYGBIV = Mode of Transportation
+		String modeOfTransportation = null;
+		if(roygbiv.toLowerCase().equals("help"))
+		{roygbiv = "The ROYGBIV colors are red, orange, yellow, green, blue, indigo, violet.";}
+		if(roygbiv.toLowerCase().equals("red"))
+		{modeOfTransportation = "Incom Corporation T-16 Skyhopper";}
+		if(roygbiv.toLowerCase().equals("orange"))
+		{modeOfTransportation = "Kuat Drive Yards All Terrain Armored Transport Combat Walker";}
+		if(roygbiv.toLowerCase().equals("yellow"))
+		{modeOfTransportation = "Aratech Repulsor Company 74-Z Speeder Bike";}		
+		if(roygbiv.toLowerCase().equals("green"))
+		{modeOfTransportation = "Incom-FreiTek T-85 X-wing";}	
+		if(roygbiv.toLowerCase().equals("blue"))
+		{modeOfTransportation = "Corellian Engineering Corporation YT-1300 (heavily and illegally modified)";}
+		if(roygbiv.toLowerCase().equals("indigo"))
+		{modeOfTransportation = "Ubrikkian Industries Sail Barge";}	
+		if(roygbiv.toLowerCase().equals("voilet"))
+		{modeOfTransportation = "Tauntaun";}	
 
-// Output
-		System.out.print(nameFirst + " " + nameLast + " will retire in " 
-		+ yearsRetire + " years with "
-				+ "[amountOfMoney] in the bank, " + "with a vacation home in [vactionHomeLocation], and "
-				+ "a [modeOfTransportation].");
+		
+// 		4. Birth Month = $ MIB
+		int amountOfMoney;
+		amountOfMoney = 0;
+		if (birthMonth > 0 && birthMonth <=4) {amountOfMoney = 400000;}
+		if (birthMonth >= 5 && birthMonth <=8) {amountOfMoney = 350000;}
+		if (birthMonth >= 9 && birthMonth <=12) {amountOfMoney = 10000000;}
+		
+		
+// III.	Output
+		System.out.print(nameFirst + " " + nameLast 
+		+ " will retire in " + yearsRetire + " years with $"
+		+ amountOfMoney + ".00 in the bank, " 
+		+ "with a vacation home on " + vacationHomeLocation 
+		+ ", and traveling via " + modeOfTransportation + ".");
 	}
 
 }
