@@ -60,8 +60,14 @@ public class FortuneTellerApp {
 		System.out.println("What is your favorite ROYGBIV color? "
 				+ "(What is ROYGBIV? Enter \"Help\" for list of the ROYGBIV colors.)");
 		String roygbiv = input.next();
-
-		
+// 		if help then explain roygbiv and ask for favorite color again
+		if (roygbiv.equalsIgnoreCase("HELP")) 
+		{
+            System.out.println("Input one of the following of ROYGBIV colors:");
+            System.out.println(" Red, Orange, Yellow, Green, Blue, Indigo, or Violet");
+            String response2 = input.next();
+            roygbiv = response2;
+        }
 
 		System.out.println("How many siblings do you have? ");
 		int siblings = input.nextInt();
@@ -91,8 +97,6 @@ public class FortuneTellerApp {
 		
 //		3. ROYGBIV = Mode of Transportation
 		String modeOfTransportation = null;
-		if(roygbiv.toLowerCase().equals("help"))
-		{roygbiv = "The ROYGBIV colors are red, orange, yellow, green, blue, indigo, violet.";}
 		if(roygbiv.toLowerCase().equals("red"))
 		{modeOfTransportation = "Incom Corporation T-16 Skyhopper";}
 		if(roygbiv.toLowerCase().equals("orange"))
@@ -122,7 +126,7 @@ public class FortuneTellerApp {
 		+ " will retire in " + yearsRetire + " years with $"
 		+ amountOfMoney + ".00 in the bank, " 
 		+ "with a vacation home on " + vacationHomeLocation 
-		+ ", and traveling via " + modeOfTransportation + ".");
+		+ ", and travele via " + modeOfTransportation + ".");
 	}
 
 }
